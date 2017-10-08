@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ShowleftService } from '../../showleft.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  private showtype:any;
+  constructor(showleft:ShowleftService) { 
+  	this.showtype=showleft;
+  }
 
   ngOnInit() {
   }
-
+	OpMenu(){
+		this.showtype.changetype();
+	}
 }
